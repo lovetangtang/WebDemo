@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width>, initial-scale=1.0'>
+    <title>Document</title>
+</head>
+<style>
+    .container {
+        display: grid;
+        grid-template-columns: 33.33% 33.33% 33.33%;
+        grid-template-rows: 33.33% 33.33% 33.33%;
+        grid-row-gap: 20px;
+        grid-column-gap: 20px;
+    }
+
+    .box {
+        background-color: royalblue;
+        height: 20em;
+    }
+</style>
+
+<body>
+    <!-- <user-card></user-card>
+    <test-div style="color: royalblue;"></test-div> -->
+
+    <div class="container">
+        <div class="box">
+            <p>1</p>
+        </div>
+        <div class="box">
+            <p>2</p>
+        </div>
+        <div class="box">
+            <p>3</p>
+        </div>
+        <div class="box">
+            <p>4</p>
+        </div>
+    </div>
+
+    <my-button></my-button>
+    <template id="userCardTemplate">
+        <img class="image">
+        <div class="container">
+            <p class="name"></p>
+            <p class="email"></p>
+            <button class="button">Follow John</button>
+        </div>
+    </template>
+    <template id="test">
+        <div style="width: 900px;color: red;font-size: 99px;">糖糖sdfsdf</div>
+    </template>
+    <script src="button.js"></script>
+    <script>
+        class testDiv extends HTMLElement {
+            constructor() {
+                super();
+                var testElem = document.getElementById("test");
+                var content = testElem.content.cloneNode(true);
+                this.appendChild(content);
+
+            }
+        }
+
+
+        class UserCard extends HTMLElement {
+            constructor() {
+                super();
+
+                var templateElem = document.getElementById('userCardTemplate');
+                var content = templateElem.content.cloneNode(true);
+                this.appendChild(content);
+            }
+        }
+        window.customElements.define('user-card', UserCard);
+        window.customElements.define('test-div', testDiv);
+    </script>
+</body>
+
+</html>
